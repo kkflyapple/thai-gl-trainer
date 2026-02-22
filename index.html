@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>notepad</title>
+</head>
+<style type="text/css">
+ol,ul{
+display:block;
+list-style-type:none;
+margin:3px;
+}
+</style><body>
+<div>&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="en"&gt;<br>
+&lt;head&gt;<br>
+&lt;meta charset="UTF-8"&gt;<br>
+&lt;title&gt;Thai GL/CP Conversation Trainer &#128149;&lt;/title&gt;<br>
+&lt;style&gt;<br>
+body {<br>
+&nbsp; font-family: Arial, sans-serif;<br>
+&nbsp; background: linear-gradient(to bottom, #fff0f6, #ffe6f0);<br>
+&nbsp; text-align: center;<br>
+&nbsp; padding: 15px;<br>
+}<br>
+.card {<br>
+&nbsp; background: white;<br>
+&nbsp; padding: 20px;<br>
+&nbsp; margin: 15px auto;<br>
+&nbsp; width: 340px;<br>
+&nbsp; border-radius: 15px;<br>
+&nbsp; box-shadow: 0 4px 12px rgba(0,0,0,0.1);<br>
+}<br>
+button {<br>
+&nbsp; padding: 10px 14px;<br>
+&nbsp; margin: 8px;<br>
+&nbsp; border: none;<br>
+&nbsp; border-radius: 10px;<br>
+&nbsp; background: #ff4da6;<br>
+&nbsp; color: white;<br>
+&nbsp; cursor: pointer;<br>
+}<br>
+.hidden { display:none; }<br>
+input {<br>
+&nbsp; padding: 8px;<br>
+&nbsp; border-radius: 8px;<br>
+&nbsp; border: 1px solid #ccc;<br>
+}<br>
+&lt;/style&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+<br>
+&lt;h2&gt;&#127481;&#127469; Thai GL/CP Trainer &#128149;&lt;/h2&gt;<br>
+<br>
+&lt;!-- Flashcards --&gt;<br>
+&lt;div class="card"&gt;<br>
+&nbsp; &lt;h3 id="thai"&gt;&#3626;&#3623;&#3633;&#3626;&#3604;&#3637;&lt;/h3&gt;<br>
+&nbsp; &lt;p id="roman" class="hidden"&gt;sa-wat-dee&lt;/p &gt;<br>
+&nbsp; &lt;p id="meaning" class="hidden"&gt;Hello&lt;/p &gt;<br>
+<br>
+&nbsp; &lt;button onclick="speak()"&gt;&#128266; Speak&lt;/button&gt;<br>
+&nbsp; &lt;button onclick="show()"&gt;Show&lt;/button&gt;<br>
+&nbsp; &lt;button onclick="next()"&gt;Next&lt;/button&gt;<br>
+&lt;/div&gt;<br>
+<br>
+&lt;!-- Dialogue --&gt;<br>
+&lt;div class="card"&gt;<br>
+&nbsp; &lt;h3&gt;&#127917; Scene&lt;/h3&gt;<br>
+&nbsp; &lt;p id="dialogue"&gt;A: &#3588;&#3636;&#3604;&#3606;&#3638;&#3591;&#3609;&#3632;&lt;br&gt;B: &#3648;&#3627;&#3617;&#3639;&#3629;&#3609;&#3585;&#3633;&#3609;&lt;/p &gt;<br>
+&nbsp; &lt;button onclick="nextScene()"&gt;Next Scene&lt;/button&gt;<br>
+&lt;/div&gt;<br>
+<br>
+&lt;!-- Roleplay --&gt;<br>
+&lt;div class="card"&gt;<br>
+&nbsp; &lt;h3&gt;&#128172; Roleplay&lt;/h3&gt;<br>
+&nbsp; &lt;p id="rp"&gt;A: &#3652;&#3611;&#3585;&#3636;&#3609;&#3586;&#3657;&#3634;&#3623;&#3585;&#3633;&#3609;&#3652;&#3627;&#3617;?&lt;/p &gt;<br>
+&nbsp; &lt;input id="rpInput" placeholder="Reply in English..."&gt;<br>
+&nbsp; &lt;br&gt;<br>
+&nbsp; &lt;button onclick="checkRP()"&gt;Reply&lt;/button&gt;<br>
+&nbsp; &lt;p id="rpResult"&gt;&lt;/p &gt;<br>
+&lt;/div&gt;<br>
+<br>
+&lt;!-- Quiz --&gt;<br>
+&lt;div class="card"&gt;<br>
+&nbsp; &lt;h3&gt;&#129504; Quiz&lt;/h3&gt;<br>
+&nbsp; &lt;p id="quizQ"&gt;&#3609;&#3656;&#3634;&#3619;&#3633;&#3585;&#3592;&#3633;&#3591;&lt;/p &gt;<br>
+&nbsp; &lt;input id="quizA" placeholder="Meaning..."&gt;<br>
+&nbsp; &lt;br&gt;<br>
+&nbsp; &lt;button onclick="checkQuiz()"&gt;Check&lt;/button&gt;<br>
+&nbsp; &lt;p id="quizR"&gt;&lt;/p &gt;<br>
+&lt;/div&gt;<br>
+<br>
+&lt;script&gt;<br>
+const data = [<br>
+ {t:"&#3626;&#3623;&#3633;&#3626;&#3604;&#3637;", r:"sa-wat-dee", m:"hello"},<br>
+ {t:"&#3588;&#3636;&#3604;&#3606;&#3638;&#3591;&#3609;&#3632;", r:"kit teung na", m:"i miss you"},<br>
+ {t:"&#3594;&#3629;&#3610;&#3648;&#3608;&#3629;", r:"chob ter", m:"i like you"},<br>
+ {t:"&#3652;&#3611;&#3585;&#3636;&#3609;&#3586;&#3657;&#3634;&#3623;&#3585;&#3633;&#3609;&#3652;&#3627;&#3617;", r:"bpai gin khao gan mai", m:"eat together"},<br>
+ {t:"&#3609;&#3656;&#3634;&#3619;&#3633;&#3585;&#3592;&#3633;&#3591;", r:"na rak jang", m:"so cute"}<br>
+];<br>
+<br>
+let i=0;<br>
+<br>
+function show(){<br>
+ document.getElementById("roman").classList.remove("hidden");<br>
+ document.getElementById("meaning").classList.remove("hidden");<br>
+}<br>
+<br>
+function next(){<br>
+ i=(i+1)%data.length;<br>
+ thai.innerText=data[i].t;<br>
+ roman.innerText=data[i].r;<br>
+ meaning.innerText=data[i].m;<br>
+ roman.classList.add("hidden");<br>
+ meaning.classList.add("hidden");<br>
+}<br>
+<br>
+function speak(){<br>
+ let msg=new SpeechSynthesisUtterance(data[i].t);<br>
+ msg.lang="th-TH";<br>
+ speechSynthesis.speak(msg);<br>
+}<br>
+<br>
+// Dialogue scenes<br>
+const scenes=[<br>
+ "A: &#3588;&#3636;&#3604;&#3606;&#3638;&#3591;&#3609;&#3632;&lt;br&gt;B: &#3648;&#3619;&#3634;&#3585;&#3655;&#3588;&#3636;&#3604;&#3606;&#3638;&#3591;",<br>
+ "A: &#3648;&#3611;&#3655;&#3609;&#3629;&#3632;&#3652;&#3619;&#3652;&#3627;&#3617;?&lt;br&gt;B: &#3652;&#3617;&#3656;&#3648;&#3611;&#3655;&#3609;&#3652;&#3619;",<br>
+ "A: &#3594;&#3629;&#3610;&#3648;&#3608;&#3629;&lt;br&gt;B: &#3592;&#3619;&#3636;&#3591;&#3648;&#3627;&#3619;&#3629;"<br>
+];<br>
+let s=0;<br>
+<br>
+function nextScene(){<br>
+ s=(s+1)%scenes.length;<br>
+ dialogue.innerHTML=scenes[s];<br>
+}<br>
+<br>
+// Roleplay<br>
+function checkRP(){<br>
+ let ans=rpInput.value.toLowerCase();<br>
+ if(ans.includes("yes")||ans.includes("ok")){<br>
+&nbsp; rpResult.innerText="&#128149; Cute reply!";<br>
+ } else {<br>
+&nbsp; rpResult.innerText="Try something softer &#128522;";<br>
+ }<br>
+}<br>
+<br>
+// Quiz<br>
+function checkQuiz(){<br>
+ let user=quizA.value.toLowerCase();<br>
+ if(user.includes("cute")){<br>
+&nbsp; quizR.innerText="&#9989; Correct!";<br>
+ } else {<br>
+&nbsp; quizR.innerText="&#10060; so cute";}<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div>
+</body>
+</html>
