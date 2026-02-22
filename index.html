@@ -1,93 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thai Language Learning App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 15px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .quiz {
-            margin-top: 20px;
-            background-color: #e4e4e4;
-            padding: 15px;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
-    <h1>Welcome to the Thai Language Learning App!</h1>
-
-    <div class="card">
-        <h2>Flashcards</h2>
-        <p>Test your vocabulary with interactive flashcards.</p>
-        <button class="button" onclick="showFlashcards()">Start Flashcards</button>
-    </div>
-
-    <div class="card">
-        <h2>Dialogues</h2>
-        <p>Explore common dialogues.</p>
-        <button class="button" onclick="showDialogues()">View Dialogues</button>
-    </div>
-
-    <div class="card">
-        <h2>Roleplay</h2>
-        <p>Engage in roleplay scenarios.</p>
-        <button class="button" onclick="showRoleplay()">Start Roleplay</button>
-    </div>
-
-    <div class="card">
-        <h2>Quizzes</h2>
-        <p>Challenge yourself with quizzes.</p>
-        <button class="button" onclick="showQuiz()">Take Quiz</button>
-    </div>
-
-    <div class="card">
-        <h2>Audio Pronunciation</h2>
-        <p>Listen to audio pronunciations of words.</p>
-        <button class="button" onclick="playAudio()">Play Pronunciation</button>
-    </div>
-
-    <script>
-        function showFlashcards() {
-            alert('Flashcards feature coming soon!');
-        }
-        function showDialogues() {
-            alert('Dialogues feature coming soon!');
-        }
-        function showRoleplay() {
-            alert('Roleplay feature coming soon!');
-        }
-        function showQuiz() {
-            alert('Quizzes feature coming soon!');
-        }
-        function playAudio() {
-            alert('Audio Pronunciation feature coming soon!');
-        }
-    </script>
+    <header>
+        <h1>Welcome to the Thai Language Learning App</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#flashcards">Flashcards</a></li>
+            <li><a href="#dialogues">Dialogues</a></li>
+            <li><a href="#roleplay">Roleplay</a></li>
+            <li><a href="#quizzes">Quizzes</a></li>
+            <li><a href="#grammar">Grammar Lessons</a></li>
+            <li><a href="#audio">Audio Pronunciation</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="flashcards">
+            <h2>Flashcards</h2>
+            <p>Enhance your vocabulary with interactive flashcards covering various topics.</p>
+        </section>
+        <section id="dialogues">
+            <h2>Dialogues</h2>
+            <p>Practice speaking with dialogues that simulate real-life conversations.</p>
+        </section>
+        <section id="roleplay">
+            <h2>Roleplay</h2>
+            <p>Engage in roleplaying scenarios to practice your speaking skills in context.</p>
+        </section>
+        <section id="quizzes">
+            <h2>Quizzes</h2>
+            <p>Test your knowledge with quizzes that reinforce learning.</p>
+        </section>
+        <section id="grammar">
+            <h2>Grammar Lessons</h2>
+            <p>Learn the fundamentals of Thai grammar through structured lessons.</p>
+        </section>
+        <section id="audio">
+            <h2>Audio Pronunciation</h2>
+            <p>Listen to audio clips to master correct pronunciation of Thai words.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Thai Language Learning App. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
