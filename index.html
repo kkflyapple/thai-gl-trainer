@@ -3,50 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thai GL/CP Trainer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Thai Language Learning App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .quiz {
+            margin-top: 20px;
+            background-color: #e4e4e4;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Thai GL/CP Trainer</h1>
-    </header>
-    <main>
-        <section id="flashcards">
-            <h2>Flashcards</h2>
-            <div class="card-container">
-                <div class="flashcard">
-                    <div class="front">Thai Word</div>
-                    <div class="back">English Translation</div>
-                </div>
-            </div>
-            <button onclick="nextFlashcard()">Next Flashcard</button>
-        </section>
-        <section id="dialogue">
-            <h2>Dialogue Scenes</h2>
-            <div class="dialogue-container">
-                <p><strong>User:</strong> Hello.</p>
-                <p><strong>Trainer:</strong> สวัสดี (Sawasdee).</p>
-            </div>
-        </section>
-        <section id="roleplay">
-            <h2>Roleplay</h2>
-            <p>Choose your scenario:</p>
-            <button onclick="startRoleplay()">Visit a Market</button>
-            <button onclick="startRoleplay()">Order Food</button>
-        </section>
-        <section id="quiz">
-            <h2>Quiz Section</h2>
-            <form>
-                <label for="question">What is the Thai word for 'water'?</label><br>
-                <input type="text" id="question" name="question"><br>
-                <input type="submit" value="Submit">
-            </form>
-            <div id="quiz-result"></div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Thai GL/CP Trainer</p>
-    </footer>
-    <script src="script.js"></script>
+    <h1>Welcome to the Thai Language Learning App!</h1>
+
+    <div class="card">
+        <h2>Flashcards</h2>
+        <p>Test your vocabulary with interactive flashcards.</p>
+        <button class="button" onclick="showFlashcards()">Start Flashcards</button>
+    </div>
+
+    <div class="card">
+        <h2>Dialogues</h2>
+        <p>Explore common dialogues.</p>
+        <button class="button" onclick="showDialogues()">View Dialogues</button>
+    </div>
+
+    <div class="card">
+        <h2>Roleplay</h2>
+        <p>Engage in roleplay scenarios.</p>
+        <button class="button" onclick="showRoleplay()">Start Roleplay</button>
+    </div>
+
+    <div class="card">
+        <h2>Quizzes</h2>
+        <p>Challenge yourself with quizzes.</p>
+        <button class="button" onclick="showQuiz()">Take Quiz</button>
+    </div>
+
+    <div class="card">
+        <h2>Audio Pronunciation</h2>
+        <p>Listen to audio pronunciations of words.</p>
+        <button class="button" onclick="playAudio()">Play Pronunciation</button>
+    </div>
+
+    <script>
+        function showFlashcards() {
+            alert('Flashcards feature coming soon!');
+        }
+        function showDialogues() {
+            alert('Dialogues feature coming soon!');
+        }
+        function showRoleplay() {
+            alert('Roleplay feature coming soon!');
+        }
+        function showQuiz() {
+            alert('Quizzes feature coming soon!');
+        }
+        function playAudio() {
+            alert('Audio Pronunciation feature coming soon!');
+        }
+    </script>
 </body>
 </html>
